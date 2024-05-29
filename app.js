@@ -1,3 +1,18 @@
+//Menu data structure
+const menuLinks = [
+    { text: 'about', href: '/about'},
+    { text: 'catalog', href: '/catalog'},
+    { text: 'orders', href: '/orders'},
+    { text: 'account', href: '/account'},
+];
+
+//Iterate over the entire menuLinks array and for each "link" object:
+//Create an <a> element.
+for(let i = 0; i <= menuLinks.length -1; i++)
+for(let j = 0; j <= menuLinks.length -1; j++){
+const mlinks = document.createElement('A')
+}
+
 //Select and cache the <main> element in a variable named mainEl
 const mainEl = document.querySelector('main')
 console.log(mainEl)
