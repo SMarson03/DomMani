@@ -7,9 +7,9 @@ console.log(mainEl);
 mainEl.style.backgroundColor = "var(--main-bg)";
 
 // Set the content of mainEl to <h1>DOM Manipulation</h1>
-const new_element = document.createElement("h1");
-new_element.innerHTML = "DOM MANIPULATION";
-mainEl.appendChild(new_element);
+const h1 = document.createElement("h1");
+h1.innerHTML = "DOM MANIPULATION";
+mainEl.appendChild(h1);
 
 // Add a class of flex-ctr to mainEl
 mainEl.classList.add("flex-ctr");
@@ -60,7 +60,7 @@ menuLinks.forEach((link) => {
     topMenuEl.appendChild(aElement);
 });
 
-const subMenuEl = document.querySelector("#sub-menu")
+const subMenuEl = document.querySelector("#sub-menu");
 
 subMenuEl.style.height = "100%";
 
@@ -68,7 +68,7 @@ subMenuEl.style.backgroundColor = "var(--sub-menu-bg)";
 
 subMenuEl.classList.add("flex-around");
 
-subMenuEl.style.position = 'absolute';
+subMenuEl.style.position = "absolute";
 
 subMenuEl.style.top = "0";
 
@@ -83,8 +83,8 @@ topMenuEl.addEventListener("click", (event) => {event.preventDefault();
 // } else{link.classList.remove("action");
 // }
 // })
-const linkText = event.target.textContent.toLowerCase();
-const linkObject = menuLinks.find((link) => link.text === linkText);
+const linkText = event.target.textContent.toLowerCase();//turn all elements lowercase
+const linkObject = menuLinks.find((link) => link.text === linkText); //referencing menuLinks array
 
 if(event.target.classList.contains("active")) {
 event.target.classList.remove("active");
@@ -117,7 +117,12 @@ subMenuEl.addEventListener("click", (event) => {
 
     if(event.target.tagName !== "A") return;
 
-    console.log("Submenu Link clicked", event.target.textContent);
+    console.log("Submenu Link click", event.target.textContent);
+    
+    subMenuEl.style.top = "0"
 
+    document.querySelectorAll("#top-menu a").forEach(a => a.classList.remove("active"))
   
-})
+    subMenuEl.innerHTML = '<h1>${event.target.textContent}</h1>'
+    //This didn't work i've looked at it a thousand times. It produces the words inside the h1 instead of the name of the submenu
+});
